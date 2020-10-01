@@ -1,0 +1,159 @@
+---
+name: Ege
+surname: Ulgen
+position: "MD. PhD Candidate"
+address: "Department of Biostastics & Medical Informatics, Acibadem Mehmet Ali Aydınlar University"
+phone: +90 535 768 3113
+profilepic: photo.jpeg
+www: egeulgen.com
+email: "egeulgen@gmail.com"
+github: egeulgen
+linkedin: ege-ulgen-378984159
+date: "`r format(Sys.time(), '%B %Y')`"
+aboutme: "I'm a PhD candidate in bioinformatics, focused on omics analyses of cancers, particularly brain tumors. Through computational research, I aim to contribute to the understanding of brain tumor biology and to develop new approaches to improve the outcomes of these tumors."
+output: vitae::twentyseconds
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(vitae)
+```
+
+# Personal
+
+__Birth__ \hfill Istanbul, May 9, 1990
+
+__Languages__ \hfill Turkish — native, English — near native, French — working knowledge
+
+
+# Education
+
+```{r}
+library(tibble)
+tribble(
+  ~ Degree, ~ Year, ~ Institution, ~ Where,
+  "M.D., summa cum laude", "2009-2015", "Acibadem University", "Istanbul, Turkey",
+  "Ph.D. candidate", "2016-current", "Acibadem University", "Istanbul, Turkey",
+) %>% 
+  detailed_entries(Degree, Year, Institution, Where)
+```
+
+# R Packages
+
+```{r rpkgs}
+tmp <- as.data.frame(pkgsearch::ps("Ulgen",size = 100) %>%
+  filter(maintainer_name == "Ege Ulgen"))
+
+tmp %>%
+  brief_entries(
+    what = package, 
+    when = lubridate::year(date), 
+    with = title
+  )
+```
+
+
+# Experience
+
+> __Akalin Lab, Max–Delbrück–Centrum für Molekulare Medizin \hfill 2018__
+
+Worked on a project on the effects of doublet cells on single–cell RNAseq analysis. Using a real dataset and simulations, demonstrated that doublets cause pseudo–paths (false patterns of differentiation), negatively affect discrimination between different cell types and have a negative effect on imputation results. Mentors: Vedran Franke, Altuna Akalin
+
+> __Epigenetiks Genetik Biyoinformatik Yazılım A.Ş  \hfill 2017–Present__
+
+Working on multiple Omics Analysis pipelines for the local medical diagnostics company based in Istanbul–Turkey. Responsibilities provided include: implementation of whole exome sequencing analysis pipelines for aiding the diagnosis of undiagnosed subjects with rare diseases, and whole exome sequencing analysis pipelines for cancer diagnostics and prognostics. Mentor: Prof. Ugur Sezerman, Ph.D.
+
+> __Sezerman Lab, Acibadem University \hfill 2016–Present__
+
+Research in –omics analyses of various complex diseases, including cancers, neurological diseases and gynecological diseases, particulary focused on transriptomics and proteomics analyses, utilizing differential expression analysis tools as well as machine learning approaches to classify patients from controls and identify genes important for pathogenesis. Mentor: Prof. Ugur Sezerman, Ph.D.
+
+> __NOT Nöroonkoloji Teknolojileri Ltd Şti. \hfill 2015–Present__
+ 
+Created and continously developing the Whole Exome Sequencing pipeline for the local medical diagnostics company based in Istanbul–Turkey. The pipeline allows for the identification of clinically–relevant genomics findings in brain tumors, especially regarding gliomas. Mentor: Koray Ozduman
+
+> __Elective Clerkship as Research Intern at Gunel Lab – Yale University School of Medicine \hfill 2014__
+
+Research in cortical malformations, intracranial aneurysm and particulary in gliomas. I performed in vitro experiments, including cloning, cell–culture and luciferase assays to reveal that a risk allele augments the effect of an enchancer targeting the oncogene MYC, hence facilitating gliomagenesis. Mentor: Murat Gunel
+
+> __Research Internship at Gunel Lab – Yale University School of Medicine \hfill 2013__
+
+Research in vestibular schwannomas, performing functional in vitro analyses to investigate the effect of a mutation in the pathogenesis of vestibular schwannomas. Mentor: Murat Gunel
+
+> __Research Internship at Gunel Lab – Yale University School of Medicine \hfill 2012__
+
+Research in neurogenetics, skeletal dysplasias and vestibular schwannomas, analyzing Whole Exome Sequencing results and verifying relevant findings. Mentor: Murat Gunel
+
+> __Acıbadem University Brain Tumor Research Group \hfill 2012–present__
+
+Participate in journal club meetings as well as research in brain tumors, particulary on glioma. I assist in biostatistical as well as bioinformatic analyses, focusing on the integration of molecular biological and clinical data to improve diagnosis, prognosis and treatment. Mentor: Koray Ozduman
+
+> __Research Internship at Gunel Lab – Yale University School of Medicine \hfill 2011__
+
+Research in neurogenetics, with particular focus on malformations of cortical development and intracranial aneurysms, utilizing molecular techniques to investigate the underlying genetic/molecular mechanisms. Mentor: Murat Gunel
+
+
+# Certificates
+
+```{r}
+tribble(
+  ~Year, ~Type, ~Desc,
+  2016, "Machine Learning", "Grade: 94.8 – coursera.org/verify/7QETTCDWHXHP",
+  2018, "Finding Hidden Messages in DNA (Bioinformatics I) (with Honors)", "Grade: 96.0% – coursera.org/verify/B5Y2QZ4AWTCL",
+  2019, "Genome Sequencing (Bioinformatics II) (with Honors)", "Grade: 99.0% – coursera.org/verify/242DMGMNGFXA",
+  2019, "Comparing Genes, Proteins, and Genomes (Bioinformatics III) (with Honors)", "Grade: 100% – coursera.org/verify/N3B77QC9N7V6",
+  2019, "Molecular Evolution (Bioinformatics IV) (with Honors)", "Grade: 100% – coursera.org/verify/TM3MWQPRPS47",
+  2019, "Genomic Data Science and Clustering (Bioinformatics V) (with Honors)", "Grade: 94.0% – coursera.org/verify/AGX8F2V8PU3G",
+  2019, "Bioinformatics Capstone: Big Data in Biology", "Grade: 100% – coursera.org/verify/9AKDLPVN9M2U",
+  2019, "Bioinformatics Specialization", "coursera.org/verify/35KWGTCVTJX8"
+) %>% 
+  brief_entries(
+    glue::glue("Certificate in {Type}"),
+    Year, 
+    Desc
+  )
+```
+
+# Honors and Awards
+
+```{r}
+tribble(
+  ~Year, ~Type, ~Desc,
+  2009, "School of Medicine Full Student Scholarship", "Acibadem University",
+  2009, "KYK Scholarship for Outstanding Achievement in OSS (College Entrance Examination)", "Ministry of Youth and Sports, Republic of Turkey"
+) %>% 
+  brief_entries(
+    glue::glue("Awarded {Type}"),
+    Year, 
+    Desc
+  )
+```
+
+# Publications
+
+```{r}
+library(dplyr)
+scholar::get_publications("5bN2xIYAAAAJ&hl") %>% 
+  # filter(cites > 30) %>% 
+  distinct(title, .keep_all = TRUE) %>%
+  transmute(bibtype = "Article", author = as.character(author),
+            title = as.character(title),
+            journaltitle = as.character(journal), year, key = row_number()) %>% 
+  RefManageR::as.BibEntry() %>% 
+  RefManageR::WriteBib("egeulgen.bib")
+
+bibliography_entries("egeulgen.bib")
+```
+
+# Skills
+
+- **Advanced Knowledge** in R, Python
+- **Intermediate Knowledge** in Perl, Bash Shell scripting, Git, \LaTeX, AWS, make, snakemake
+- **Basic Knowledge** in MATLAB, Julia, Java, C, C++
+
+- Confident in Microsoft Office.
+- A knowledge of Adobe Illustrator and Adobe Photoshop.
+
+
+# References
+
+Available upon request
