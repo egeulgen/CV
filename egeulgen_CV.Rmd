@@ -47,7 +47,7 @@ tmp <- as.data.frame(pkgsearch::ps("Ulgen",size = 100) %>%
 tmp %>%
   brief_entries(
     what = package, 
-    when = lubridate::year(date), 
+    when = as.character(version), 
     with = title
   )
 ```
@@ -141,7 +141,9 @@ scholar::get_publications("5bN2xIYAAAAJ&hl") %>%
   RefManageR::as.BibEntry() %>% 
   RefManageR::WriteBib("egeulgen.bib")
 
-bibliography_entries("egeulgen.bib")
+bib_entries <- bibliography_entries("egeulgen.bib")
+bib_entries <- bib_entries[order(bib_entries$issued, decreasing = TRUE), ]
+bib_entries
 ```
 
 # Skills
